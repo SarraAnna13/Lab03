@@ -57,7 +57,8 @@ public class FXMLController {
     model.loadDictionary(linguascelta);
     
     String testo= txtscritto.getText();
-    //testo.replaceAll(“[.,\\/#!$%\\^&\\*;:{}=\\-_`~()\\[\\]\]");
+    testo=testo.replaceAll("[.,\\/#!$%\\^&\\*;:{}=\\-_`~()\\[\\]\"]", "");
+    testo=testo.toLowerCase();
     StringTokenizer st= new StringTokenizer (testo, " ");
     while(st.hasMoreElements()) paroletesto.add(st.nextToken());
     correzione= model.spellCheckText(paroletesto);
